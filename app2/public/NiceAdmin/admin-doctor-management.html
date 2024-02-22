@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+  <link href="../favicon.ico" rel="icon">
+  <link href="../../apple-touch-icon.png" rel="apple-touch-icon">
+
+ 
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  
+  <link href="assets/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="#" class="logo d-flex align-items-center">
+        <img src="../logo.png" alt="">
+        <span class="d-none d-lg-block"> Doctor Appointment</span>
+      </a>
+      <i class="fas fa-bars toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" >
+            <span class="d-none d-md-block  ps-2">Online Doctor Appointment System</span>
+            <img src="../logo.png" alt="Profile" class="rounded-circle">
+            
+          </a><!-- End Profile Iamge Icon -->
+
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav"> 
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="admin-home.html">
+          <i class="fa fa-home fa-2x"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="admin-doctor-management.html">
+          <i class="fa fa-home fa-2x"></i>
+          <span>Doctors Management</span>
+        </a>
+      </li>
+
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="doctor-home.html">
+          <i class="fa fa-home fa-2x"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="doctor-update-profile.html">
+          <i class="fa fa-home fa-2x"></i>
+          <span>My Profile</span>
+        </a>
+      </li>
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="doctor-service.html">
+          <i class="fa fa-home fa-2x"></i>
+          <span>My Package</span>
+        </a>
+      </li>
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="doctor-assitant.html">
+          <i class="fa fa-home fa-2x"></i>
+          <span>My Assitants</span>
+        </a>
+      </li>
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="doctor-appointment.html">
+          <i class="fa fa-home fa-2x"></i>
+          <span>My Appointments</span>
+        </a>
+      </li>
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="assitant-home.html">
+          <i class="fa fa-home fa-2x"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="change-password.html">
+          <i class="fa fa-home fa-2x"></i>
+          <span>Change Password</span>
+        </a>
+      </li>
+      <li class="nav-item shadow-sm">
+        <a class="nav-link collapsed" href="#">
+          <i class="fa fa-home fa-2x"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Doctor Management</h1>
+    </div><!-- End Page Title -->
+    <div class="card shadow">
+        <div class="card-header text-bg-primary">
+            <h5>registered Doctors</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-stripped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Sr No</th>
+                      <th>Name</th>
+                      <th>Photo</th>
+                      <th>City</th>
+                      <th>Registration </th>
+                      <th>Qualification</th>
+                      <th class="text-center">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>jaydeep </td>
+                      <td>
+                        <a href="https://picsum.photos/400" data-lightbox="image-1" data-title="My caption"> <img
+                            src="https://picsum.photos/50" class="img-fluid" />
+                        </a>
+                      </td>
+                      <td>
+                        Bhavnagar
+                      </td>
+                      <td>
+                        AB- 1234
+                      </td>
+                      <td>
+                        MD - Psycology
+                      </td>
+                      <td>
+                        <a href="admin-compose-email.html" title="Message"><i class="fa fa-envelope fa-2x"></i></a>
+                        <a href="admin-package.html" title="Package"><i class="fa-solid fa-box-open fa-2x"></i></a>
+                        <a href="admin-assitant.html" title="Assitant"><i class="fa-solid fa-users fa-2x text-success"></i></a>
+                        <a href="admin-appointments.html" title="Appointments"><i class="fa-solid fa-calendar-days fa-2x text-danger"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+    </div>
+  </main>
+  
+  <!-- End #main -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="../dist/js/lightbox-plus-jquery.min.js"></script>
+   <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

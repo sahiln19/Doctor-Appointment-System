@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBject d </title>
+</head>
+<body>
+
+    <script>
+        let person = {
+           'name': 'sahil',
+           'age' : 20,
+           'gender' : "male",
+
+        }
+        console.log(person)
+
+        let person_name = person.name;
+        let person_age = person.age;
+        let person_gender = person.gender;
+
+      
+        console.log(`The value of person_name is ${person_name} and age is ${person_age} and gender is ${person_gender}`);
+
+        let { name : my_name , age : my_age , gender : my_gender } = person;
+        console.log(`Name is  ${my_name} and age is ${my_age} and gender is ${my_gender}`)
+
+    </script>
+    
+</body>
+</html>
