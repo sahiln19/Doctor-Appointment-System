@@ -30,7 +30,7 @@ export default function AdminComposeEmail()
             <input type="text" className="form-control" id="subject" placeholder="Subject" />
             <label htmlFor="subject">Subject</label>
           </div>
-        </div>
+        </div>0
         <div className="mb-3">
           <label htmlFor="message" className="form-label">Your Message</label>
           <textarea className="form-control" id="message" placeholder="Your message" style={{"height":"100px"}} defaultValue={""} />

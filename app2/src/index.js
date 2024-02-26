@@ -11,5 +11,9 @@ import AdminChangePassword from './AdminChangePassword';
 import AdminComposeEmail from './AdminComposeEmail';
 import AdminDoctorManagement from './AdminDoctorManagement';
 import AdminPackage from './AdminPackage';
+import DoctorAddAssitant from './DoctorAddAssitant';
+import DoctorAddPackage from './DoctorAddPackage';
+import DoctorEditAssitant from './DoctorEditAssitant';
+import DoctorEditPackage from './DoctorEditPackage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<AdminComposeEmail/>)
+root.render(< DoctorEditPackage/>)

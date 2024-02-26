@@ -33,7 +33,7 @@ export default function Menu()
       </li>
       <li className="nav-item shadow-sm">
         <a className="nav-link collapsed" href="admin-doctor-management.html">
-          <i className="fa-solid fa-user-doctor"/>"
+          <i className="fa-solid fa-user-doctor"/>
           <span>Doctors Management</span>
         </a>
       </li>
