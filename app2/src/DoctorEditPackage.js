@@ -1,9 +1,10 @@
 import Menu from "./Menu";
 export default function DoctorEditPackage()
 {
-    <>
-    <Menu/>
-    <main id="main" className="main">
+    return(
+        <>
+        <Menu/>
+        <main id="main" className="main">
   <div className="pagetitle">
     <h1>
       Doctor Management
@@ -48,6 +49,6 @@ export default function DoctorEditPackage()
     </div>
   </div>
 </main>
-
-    </>
+</>
+    )
 }

@@ -15,5 +15,6 @@ import DoctorAddAssitant from './DoctorAddAssitant';
 import DoctorAddPackage from './DoctorAddPackage';
 import DoctorEditAssitant from './DoctorEditAssitant';
 import DoctorEditPackage from './DoctorEditPackage';
+import DoctorProfile from './DoctorProfile';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(< DoctorEditPackage/>)
+root.render(< DoctorProfile/>)
