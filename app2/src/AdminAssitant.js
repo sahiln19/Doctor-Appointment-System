@@ -4,6 +4,7 @@ export default function AdminAssitant()
     return(
         <>
         < Menu/>
+        {/* functional components */}
         <main id="main" className="main">
   <div className="pagetitle">
     <h1>
