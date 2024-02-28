@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function AdminLogin()
 {
@@ -9,10 +10,10 @@ export default function AdminLogin()
             <div className="row justify-content-center">
               <div className="col-12">
                 <div className="d-flex justify-content-center py-4">
-                  <a href="index.html" className="d-flex align-items-center w-auto">
+                  <Link to="#" className="d-flex align-items-center w-auto">
                     <img src="../logo.png" alt height="64px" />
                     <span className="d-none d-lg-block h2">Online Doctor Appointment</span>
-                  </a>
+                  </Link>
                 </div>{/* End Logo */}
               </div>
               <div className="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
@@ -37,7 +38,8 @@ export default function AdminLogin()
                         <button className="btn btn-primary w-100" type="submit">Login</button>
                       </div>
                       <p className="text-end">
-                        <a href="admin-forgot-password.html">Forgot password</a>
+                        <Link to="./admin-forgot-password">Forgot password</Link>
+                        <Link to="./admin-forgot-password">Forgot password</Link>
                       </p>
                     </form>
                   </div>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function DoctorLogin()
 {
     return(<main>
@@ -7,10 +9,10 @@ export default function DoctorLogin()
               <div className="row justify-content-center">
                 <div className="col-12">
                   <div className="d-flex justify-content-center py-4">
-                    <a href="#  " className="d-flex align-items-center w-auto">
+                    <Link to="#  " className="d-flex align-items-center w-auto">
                       <img src="../logo.png" alt height="64px" />
                       <span className="d-none d-lg-block h2">Online Doctor Appointment</span>
-                    </a>
+                    </Link>
                   </div>{/* End Logo */}
                 </div>
                 <div className="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
@@ -36,7 +38,7 @@ export default function DoctorLogin()
                           <button className="btn btn-success w-100" type="submit">Assistant Login</button>
                         </div>
                         <p className="text-end">
-                          <a href="doctor-forgot-password.html">Forgot password</a>
+                          <Link to="./doctor-forgot-password">Forgot password</Link>
                         </p>
                       </form>
                     </div>

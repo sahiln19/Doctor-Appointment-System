@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Menu from "./Menu"
 export default function DoctorAddAssitant()
 
@@ -12,7 +13,7 @@ export default function DoctorAddAssitant()
   <div className="card shadow">
     <div className="card-header text-bg-primary d-flex justify-content-between">
       <h5>Add new assitant</h5>
-      <a href="admin-assitant.html" className="btn btn-light">Back</a>
+      <Link to="./admin-assitant" className="btn btn-light">Back</Link>
     </div>
     <div className="card-body pt-3">
       <form>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function AdminForgotPassword()
 {
     return(<main>
@@ -7,10 +9,10 @@ export default function AdminForgotPassword()
               <div className="row justify-content-center">
                 <div className="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                   <div className="d-flex justify-content-center py-4">
-                    <a href="#" className="d-flex align-items-center w-auto">
+                    <Link to="#" className="d-flex align-items-center w-auto">
                       <img src="../logo.png" alt height="64px" />
                       <span className="d-none d-lg-block h4">Online Doctor Appointment</span>
-                    </a>
+                    </Link>
                   </div>{/* End Logo */}
                   <div className="card mb-3">
                     <div className="card-body">
@@ -29,7 +31,7 @@ export default function AdminForgotPassword()
                           <button className="btn btn-primary w-100" type="submit">Login</button>
                         </div>
                         <div className="col-12 text-end">
-                          <p className="small mb-0"> back to <a href="admin-login.html">  Login</a></p>
+                          <p className="small mb-0"> back to <Link to="./admin-login">  Login</Link></p>
                         </div>
                       </form>
                     </div>

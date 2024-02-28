@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Menu from "./Menu";
 export default function DoctorEditPackage()
 {
@@ -13,7 +14,7 @@ export default function DoctorEditPackage()
   <div className="card shadow">
     <div className="card-header text-bg-primary d-flex justify-content-between">
       <h5>Edit new package</h5>
-      <a href="admin-package.html" className="btn btn-light">Back </a>
+      <Link to="./admin-package" className="btn btn-light">Back </Link>
     </div>
     <div className="card-body">
       <form className="row mt-3">
@@ -38,8 +39,8 @@ export default function DoctorEditPackage()
           <input type="file" className="form-control" id="photo" required />
         </div>
         <div className="col-md-6 mb-3">
-          <a href="https://picsum.photos/400" data-lightbox="image-1" data-title="My caption"> <img src="https://picsum.photos/120" className="img-fluid" />
-          </a>
+          <Link to="https://picsum.photos/400" data-lightbox="image-1" data-title="My caption"> <img src="https://picsum.photos/120" className="img-fluid" />
+          </Link>
         </div>
         <div className="col-12 text-end">
           <button type="submit" className="btn btn-primary">Save</button>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Menu from "./Menu";
 export default function DoctorAddPackage()
 {
@@ -12,7 +13,7 @@ export default function DoctorAddPackage()
   <div className="card shadow">
     <div className="card-header text-bg-primary d-flex justify-content-between">
       <h5>Add new package</h5>
-      <a href="admin-package.html" className="btn btn-light">Back </a>
+      <Link to="./admin-package" className="btn btn-light">Back </Link>
     </div>
     <div className="card-body">
       <form className="row mt-3">

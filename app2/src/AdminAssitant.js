@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Menu from "./Menu";
 export default function AdminAssitant()
 {
@@ -14,7 +15,7 @@ export default function AdminAssitant()
   <div className="card shadow">
     <div className="card-header text-bg-primary d-flex justify-content-between">
       <h5>Assitant of  (jaydeep)</h5>
-      <a href="doctor-add-assitant.html" className="btn btn-light">Add Assitant <i className="fa fa-save" /></a>
+      <Link to="./doctor-add-assitant" className="btn btn-light">Add Assitant <i className="fa fa-save" /></Link>
     </div>
     <div className="card-body">
       <table className="table table-bordered table-striped">
@@ -35,8 +36,8 @@ export default function AdminAssitant()
               mohitsolanki17@gmail.com
             </td>
             <td>
-              <a title="edit assitant" href="doctor-edit-assitant.html"><i className="fa fa-pencil fa-2x" /></a>
-              <a title="remove assitant" href="#"><i className="fa fa-trash fa-2x" /></a>
+              <Link title="edit assitant" href="doctor-edit-assitant.html"><i className="fa fa-pencil fa-2x" /></Link>
+              <Link title="remove assitant" href="#"><i className="fa fa-trash fa-2x" /></Link>
             </td>
           </tr>
         </tbody>

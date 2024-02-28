@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function DoctorProfile()
 {
     return(
@@ -8,10 +10,10 @@ export default function DoctorProfile()
         <div className="row justify-content-center">
           <div className="col-12">
             <div className="d-flex justify-content-center py-4">
-              <a href="#" className="d-flex align-items-center w-auto">
+              <Link to="#" className="d-flex align-items-center w-auto">
                 <img src="../logo.png" alt height="64px" />
                 <span className="d-none d-lg-block h2">Online Doctor Appointment</span>
-              </a>
+              </Link>
             </div>{/* End Logo */}
           </div>
           <div className="col-lg-8 col-md-8 d-flex flex-column align-items-center justify-content-center">
