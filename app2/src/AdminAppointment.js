@@ -1,6 +1,6 @@
 import React from "react";
 import Menu from "./Menu";
-export default function AdminAppointments()
+export default function AdminAppointment()
 {
     return(<>
         < Menu />

@@ -33,7 +33,7 @@ export default function Menu()
         </Link>
       </li>
       <li className="nav-item shadow-sm">
-        <Link className="nav-link collapsed" to="/admin-doctor">
+        <Link className="nav-link collapsed" to="/admin-doctor-management">
           <i className="fa-solid fa-user-doctor"/>
           <span>Doctors Management</span>
         </Link>
@@ -45,31 +45,31 @@ export default function Menu()
         </Link>
       </li>
       <li className="nav-item shadow-sm">
-        <Link className="nav-link collapsed" to="/doctor-update-profile">
+        <Link className="nav-link collapsed" to="/doctor-profile">
         <i className="fa-regular fa-user"/>
           <span>My Profile</span>
         </Link>
       </li>
       <li className="nav-item shadow-sm">
-        <Link className="nav-link collapsed" to="/doctor-service">
+        <Link className="nav-link collapsed" to="/doctor-add-package">
           <i className="fa-solid fa-box-open" />
           <span>My Package</span>
         </Link>
       </li>
       <li className="nav-item shadow-sm">
-        <Link className="nav-link collapsed" to="/doctor-assitant">
+        <Link className="nav-link collapsed" to="/doctor-add-assitant">
           <i className="fa-solid fa-users fa" />
           <span>My Assitants</span>
         </Link>
       </li>
       <li className="nav-item shadow-sm">
-        <Link className="nav-link collapsed" to="/doctor-appointment">
+        <Link className="nav-link collapsed" to="/admin-appointments">
         <i className="fa-solid fa-calendar-check"/>
           <span>My Appointments</span>
         </Link>
       </li>
       <li className="nav-item shadow-sm">
-        <Link className="nav-link collapsed" to="/assitant-home">
+        <Link className="nav-link collapsed" to="/admin-assitant">
           <i className="fa fa-home fa-2x" />
           <span>Home</span>
         </Link>

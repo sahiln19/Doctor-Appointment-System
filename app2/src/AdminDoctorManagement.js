@@ -45,10 +45,34 @@ export default function AdminDoctorManagement()
                 MD - Psycology
               </td>
               <td>
-                <Link to="./admin-compose-email" title="Message"><i className="fa fa-envelope fa-2x m-1" /></Link>
-                <Link to="./admin-package" title="Package"><i className="fa-solid fa-box-open fa-2x m-1" /></Link>
-                <Link to="./admin-assitant" title="Assitant"><i className="fa-solid fa-users fa-2x text-success m-1" /></Link>
-                <Link to="./admin-appointments" title="Appointments"><i className="fa-solid fa-calendar-days fa-2x text-danger m-1" /></Link>
+                <Link to="./admin-compose-email" title="Message">
+                <lord-icon
+                        src="https://cdn.lordicon.com/tmqaflqo.json"
+                        trigger="hover"
+                        style={{ width: '40px', height: '40px' }}
+                      />
+                  </Link>
+                <Link to="./admin-package" title="Package">
+                <lord-icon
+                        src="https://cdn.lordicon.com/jqiewnyd.json"
+                        trigger="hover"
+                        style={{ width: '40px', height: '40px' }}
+                      />
+                  </Link>
+                <Link to="./admin-assitant" title="Assitant">
+                <lord-icon
+                        src="https://cdn.lordicon.com/egmlnyku.json"
+                        trigger="hover"
+                        style={{ width: '40px', height: '40px' }}
+                      />
+                </Link>
+                <Link to="./admin-appointments" title="Appointments">
+                <lord-icon
+                        src="https://cdn.lordicon.com/lzgqzxrq.json"
+                        trigger="hover"
+                        style={{ width: '40px', height: '40px' }}
+                      />
+                </Link>
               </td>
             </tr>
           </tbody>
