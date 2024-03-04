@@ -10,7 +10,9 @@ export default function Menu()
         <img src="../logo.png" alt />
         <span className="d-none d-lg-block">Doctor Appointment</span>
       </Link>
-      <i className="fas fa-bars toggle-sidebar-btn" />
+     
+      <i className="bi bi-list toggle-sidebar-btn" onClick={toggleSidebar}></i>
+    
     </div>{/* End Logo */}
     <nav className="header-nav ms-auto">
       <ul className="d-flex align-items-center">
@@ -26,6 +28,8 @@ export default function Menu()
   {/* sidebar */}
   <aside id="sidebar" className="sidebar">
     <ul className="sidebar-nav" id="sidebar-nav">
+       {/*links for admin */}
+
       <li className="nav-item shadow-sm">
         <Link className="nav-link collapsed" to="/admin-home">
           <i className="fa fa-home fa-2x" />

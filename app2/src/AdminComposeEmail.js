@@ -11,53 +11,7 @@ export default function AdminComposeEmail() {
           script.src = src;
           document.body.appendChild(script);
       }
-
-      function appendLink(href) {
-          const link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = href;
-          document.head.appendChild(link);
-      }
-
-      // Append stylesheets
-      appendLink(process.env.PUBLIC_URL + 'editor/css/froala_editor.css');
-
-      // Append external scripts
-      const externalScripts = [
-          'https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js',
-          'https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/xml/xml.min.js',
-          '/editor/js/froala_editor.min.js'
-      ];
-
-      externalScripts.forEach(scriptSrc => appendScript(process.env.PUBLIC_URL + scriptSrc));
-
-      // Your FroalaEditor code
-      const froalaEditorCode = `
-          (function () {
-            const editorInstance = new FroalaEditor('#message', {
-              enter: FroalaEditor.ENTER_P,
-              placeholderText: null,
-              events: {
-                initialized: function () {
-                  alert('we are here...');
-                  const editor = this;
-                  this.el.closest('form').addEventListener('submit', function (e) {
-                    console.log(editor.$oel.val());
-                    e.preventDefault();
-                  });
-                }
-              }
-            });
-          })();
-        `;
-      const inlineScript = document.createElement('script');
-      inlineScript.type = 'text/javascript';
-      inlineScript.innerHTML = froalaEditorCode;
-      document.body.appendChild(inlineScript);
-
-
   });
-
 
     return(
         <>
