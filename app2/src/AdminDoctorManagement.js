@@ -1,24 +1,25 @@
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 export default function AdminDoctorManagement() {
+  //create empty state array
+  let [doctor,setDoctor] = useState([]); 
   //inner function 
-  let DisplayDoctor = function()
+  let DisplayDoctor = function(item)
   {
       return ( <tr>
-        <td>1</td>
-        <td>jaydeep</td>
+        <td>{item.id}</td>
+        <td>{item.name}</td>
         <td>
           <Link to="https://picsum.photos/400" data-lightbox="image-1" data-title="My caption"> <img src="https://picsum.photos/50" className="img-fluid" />
           </Link>
         </td>
+        <td>{item.city}</td>
         <td>
-          Bhavnagar</td>
-        <td>
-          AB- 1234
+          {item.regno}
         </td>
         <td>
-        MD - Psycology
+          {item.qualification}
         </td>
         <td>
           <Link to="/admin-compose-email" title="Message">
@@ -52,9 +53,34 @@ export default function AdminDoctorManagement() {
         </td>
       </tr>);
   }
-  useEffect(() =>{
-    //api call
-    // let apiAddress = 
+  useEffect(()  =>  {
+    //create variable to store api address
+    let apiAddress = "http://www.theeasylearnacademy.com/doctor/ws/view_doctor.php";
+    //get method
+    fetch(apiAddress)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        let error = data[0]['error'];
+        console.log(error);
+        if(error !== 'no') //it means error
+          alert(error);
+        else if(data[1]['total'] === 0)
+        {
+          alert('no doctor found');
+        }
+        else 
+        {
+            //remove 2 object from 0th index 
+            data.splice(0,2); //2 is not including 
+            console.log(data);
+            setDoctor(data);
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+        alert('either you are or server is offline');
+    });
   })
   return (<>
     <Menu />
@@ -81,7 +107,7 @@ export default function AdminDoctorManagement() {
                 </tr>
               </thead>
               <tbody>
-                {DisplayDoctor()}
+                {doctor.map((item) => DisplayDoctor(item))}
               </tbody>
             </table>
           </div>
