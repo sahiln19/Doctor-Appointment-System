@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
 import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import { NetworkError,showMessage } from "./toast-message";
 export default function AdminDoctorManagement() {
   //create empty state array
   let [doctor,setDoctor] = useState([]); 
@@ -75,11 +77,15 @@ export default function AdminDoctorManagement() {
             data.splice(0,2); //2 is not including 
             console.log(data);
             setDoctor(data);
+            showMessage('doctors fetched successfully');
         }
     })
     .catch((error) => {
         console.log(error);
-        alert('either you are or server is offline');
+        //alert('');
+        //toast();
+        NetworkError();  
+        
     });
   })
   return (<>
