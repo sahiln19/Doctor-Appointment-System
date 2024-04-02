@@ -1,55 +1,59 @@
-import { Link } from "react-router-dom";
 import Menu from "./Menu";
-export default function DoctorEditPackage()
-{
-    return(
-        <>
-        <Menu/>
+export default function DoctorEditPackage() {
+    return (<>
+        <Menu />
         <main id="main" className="main">
-  <div className="pagetitle">
-    <h1>
-      Doctor Management
-    </h1>
-  </div>{/* End Page Title */}
-  <div className="card shadow">
-    <div className="card-header text-bg-primary d-flex justify-content-between">
-      <h5>Edit new package</h5>
-      <Link to="./admin-package" className="btn btn-light">Back </Link>
-    </div>
-    <div className="card-body">
-      <form className="row mt-3">
-        <div className="form-floating mb-3 col-md-6">
-          <input type="text" className="form-control" id="title" placeholder="Enter title" required />
-          <label htmlFor="title">Edit Title</label>
-        </div>
-        <div className="form-floating mb-3 col-md-6">
-          <textarea className="form-control" id="detail" rows={3} placeholder="Enter details" required defaultValue={""} />
-          <label htmlFor="detail">Edit Detail</label>
-        </div>
-        <div className="form-floating mb-3 col-md-6">
-          <input type="number" className="form-control" id="charges" placeholder="Enter charges" required />
-          <label htmlFor="charges">Edit Charges</label>
-        </div>
-        <div className="form-floating mb-3 col-md-6">
-          <input type="text" className="form-control" id="duration" placeholder="Enter duration (e.g., 1 hour, 3 days)" required />
-          <label htmlFor="duration">Edit Duration</label>
-        </div>
-        <div className="col-md-6 mb-3">
-          <label htmlFor="photo" className="form-label">Change Photo</label>
-          <input type="file" className="form-control" id="photo" required />
-        </div>
-        <div className="col-md-6 mb-3">
-          <Link to="https://picsum.photos/400" data-lightbox="image-1" data-title="My caption"> <img src="https://picsum.photos/120" className="img-fluid" />
-          </Link>
-        </div>
-        <div className="col-12 text-end">
-          <button type="submit" className="btn btn-primary">Save</button>
-          <button type="reset" className="btn btn-secondary">clear all</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</main>
-</>
-    )
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <div className="mb-3 fw-bolder">
+                            <h1>Doctor management</h1>
+                        </div>
+                    </div>
+                    <div className="col-12">
+                        <div className="card">
+                            <div className="card-header text-bg-primary h4 d-flex justify-content-between">Edit package
+                                <a href="admin-package.html" className="btn btn-light"><i className="fa-solid fa-angle-left" /> Back</a>
+                            </div>
+                            <div className="card-body mt-2">
+                                <form className="row g-3 needs-validation" noValidate>
+                                    <div className="col-6">
+                                        <label htmlFor="title" className="form-label"><i className="fa-solid fa-pen-to-square fa-xs" /> Title</label>
+                                        <input type="text" name="title" id="title" className="form-control" required />
+                                    </div>
+                                    <div className="col-6">
+                                        <label htmlFor="detail" className="form-label"><i className="fa-solid fa-pen-to-square fa-xs" /> Details</label>
+                                        <input type="text" name="detail" id="detail" className="form-control" required />
+                                    </div>
+                                    <div className="col-6">
+                                        <label htmlFor="charge" className="form-label"><i className="fa-solid fa-pen-to-square fa-xs" /> Charges</label>
+                                        <input type="number" name="charge" id="charge" className="form-control" required />
+                                    </div>
+                                    <div className="col-6">
+                                        <label htmlFor="duration" className="form-label"><i className="fa-solid fa-pen-to-square fa-xs" /> Duration</label>
+                                        <input type="number" name="duration" id="duration" className="form-control" required />
+                                    </div>
+                                    <div className="col-6">
+                                        <label htmlFor="photo" className="form-label"><i className="fa-solid fa-pen-to-square fa-xs" /> Photo</label>
+                                        <input type="file" name="file" id="file" className="form-control" required />
+                                    </div>
+                                    <div className="col-6">
+                                        <img src="http://picsum.photos/100?random=1" alt className="img-fluid img-thumbnail" />
+                                    </div>
+                                    <div className="col-12 text-end">
+                                        <div className="mt-2">
+                                            <button type="submit" className="btn btn-primary me-1">Save changes</button>
+                                            <button type="reset" className="btn btn-danger ">Clear</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </>
+    );
 }

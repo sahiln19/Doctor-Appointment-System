@@ -3,7 +3,11 @@ import Menu from "./Menu";
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { NetworkError,showMessage } from "./toast-message";
+import getBase from "./api";
+import VerifyLogin from "./VerifyLogin";
 export default function AdminDoctorManagement() {
+
+  VerifyLogin();
   //create empty state array
   let [doctor,setDoctor] = useState([]); 
   //inner function 
@@ -55,42 +59,42 @@ export default function AdminDoctorManagement() {
         </td>
       </tr>);
   }
-  useEffect(()  =>  {
-    //create variable to store api address
-    let apiAddress = "http://www.theeasylearnacademy.com/doctor/ws/view_doctor.php";
-    //get method
-    fetch(apiAddress)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-        let error = data[0]['error'];
-        console.log(error);
-        if(error !== 'no') //it means error
-          alert(error);
-        else if(data[1]['total'] === 0)
-        {
-          alert('no doctor found');
-        }
-        else 
-        {
+  useEffect(() => {
+    if (doctor.length == 0) {
+      //create variable to store api address
+      let apiAddress = getBase() + "doctor.php";
+      console.log(apiAddress);
+      //get method
+      fetch(apiAddress)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          let error = data[0]['error'];
+          console.log(error);
+          if (error !== 'no') //it means error
+            alert(error);
+          else if (data[1]['total'] === 0) {
+            alert('no doctor found');
+          }
+          else {
             //remove 2 object from 0th index 
-            data.splice(0,2); //2 is not including 
+            data.splice(0, 2); //2 is not including 
             console.log(data);
             setDoctor(data);
             showMessage('doctors fetched successfully');
-        }
-    })
-    .catch((error) => {
-        console.log(error);
-        //alert('');
-        //toast();
-        NetworkError();  
-        
-    });
+          }
+        })
+        .catch((error) => {
+          console.log("Fetch error:", error);
+          NetworkError();
+
+        });
+    }
   })
   return (<>
     <Menu />
     <main id="main" className="main">
+      <ToastContainer />
       <div className="pagetitle">
         <h1>Doctor Management</h1>
       </div>{/* End Page Title */}

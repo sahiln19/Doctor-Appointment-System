@@ -18,6 +18,8 @@ import DoctorAddPackage from './DoctorAddPackage';
 import DoctorEditAssitant from './DoctorEditAssitant';
 import DoctorEditPackage from './DoctorEditPackage';
 import DoctorProfile from './DoctorProfile';
+import Logout from './Logout';
+import { withCookies } from 'react-cookie';
 import NoPageFound from './NoPageFound';
 
 //creatin function which have routes.
@@ -41,6 +43,7 @@ function MyRoutes(){
             <Route path='/admin-doctor-management' element={<AdminDoctorManagement />} />
             <Route path='/doctor-profile' element={<DoctorProfile />} />
             <Route path='/admin-package' element={<AdminPackage />} />
+            <Route path='/logout' element={<Logout />} />
             <Route path='*' element={<NoPageFound />} />
         </Routes>
         </BrowserRouter>);
@@ -48,5 +51,6 @@ function MyRoutes(){
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+var myroutesWithCookies = withCookies(MyRoutes);
 root.render(<MyRoutes/>)
 

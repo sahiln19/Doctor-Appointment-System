@@ -1,18 +1,16 @@
-import { Link } from "react-router-dom";
-
 export default function DoctorForgotPassword()
 {
-    return(<main>
+    return (<main className="bg-warning-subtle">
         <div className="container">
           <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-12">
                   <div className="d-flex justify-content-center py-4">
-                    <Link to="#" className="d-flex align-items-center w-auto">
+                    <a href="index.html" className="d-flex align-items-center w-auto">
                       <img src="../logo.png" alt height="64px" />
                       <span className="d-none d-lg-block h2 text-danger">Online Doctor Appointment</span>
-                    </Link>
+                    </a>
                   </div>{/* End Logo */}
                 </div>
                 <div className="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
@@ -33,7 +31,7 @@ export default function DoctorForgotPassword()
                           <button className="btn btn-danger w-100" type="submit">Login</button>
                         </div>
                         <p className="text-end">
-                          <Link to="./doctor-login.html">Login</Link>
+                          <a href="doctor-login.html">Login</a>
                         </p>
                       </form>
                     </div>

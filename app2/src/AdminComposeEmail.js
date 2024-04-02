@@ -4,7 +4,9 @@
 // import 'editor/js/froala_editor.min.js';
 import { useEffect } from "react"
 import Menu from "./Menu"
+import VerifyLogin from "./VerifyLogin";
 export default function AdminComposeEmail() {
+  VerifyLogin();
   useEffect(() => {
       function appendScript(src) {
           const script = document.createElement('script');

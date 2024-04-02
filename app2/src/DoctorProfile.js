@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
-
-export default function DoctorProfile()
-{
+import {Link} from "react-router-dom";
+export default function DoctorProfile(){
     return(
         <main>
   <div className="container">
@@ -10,7 +8,7 @@ export default function DoctorProfile()
         <div className="row justify-content-center">
           <div className="col-12">
             <div className="d-flex justify-content-center py-4">
-              <Link to="#" className="d-flex align-items-center w-auto">
+              <Link to="/index" className="d-flex align-items-center w-auto">
                 <img src="../logo.png" alt height="64px" />
                 <span className="d-none d-lg-block h2">Online Doctor Appointment</span>
               </Link>
@@ -69,6 +67,5 @@ export default function DoctorProfile()
       </div></section>
   </div>
 </main>
-
-    )
+    );
 }
