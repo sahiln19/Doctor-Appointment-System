@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Menu from "./Menu";
 import VerifyLogin from "./VerifyLogin";
 import { useCookies } from "react-cookie";
 import { ToastContainer } from "react-toastify";
-import { showError,showMessage } from "./toast-message";
+import { showError, showMessage } from "./toast-message";
 import getBase from "./api";
 import axios from "axios";
 export default function AdminChangePassword() {
@@ -15,46 +15,41 @@ export default function AdminChangePassword() {
     //create cookie variable
     let [cookies, setCookie, removeCookie] = useCookies('theeasylearn');
 
-    let changePassword = function(e)
-    {
+    let changePassword = function (e) {
         e.preventDefault();
-        console.log(password,newPassword,confirmNewPassword);
+        console.log(password, newPassword, confirmNewPassword);
         //check newPassword and confirmNewPassword must not be different
-        if(newPassword!=confirmNewPassword) // < > >= <= == !=
+        if (newPassword != confirmNewPassword) // < > >= <= == !=
         {
             showError('new password and confirm new password does not match');
         }
-        else 
-        {
+        else {
             //api call
             let apiAddress = getBase() + "admin_change_password.php";
             let form = new FormData();
             let adminid = cookies['adminid'];
 
-            form.append("id",adminid);
-            form.append("oldpassword",password);
-            form.append("newpassword",newPassword);
+            form.append("id", adminid);
+            form.append("oldpassword", password);
+            form.append("newpassword", newPassword);
             console.log(form);
             axios({
-                method:'post',
-                responseType:'json',
-                url:apiAddress,
-                data:form
+                method: 'post',
+                responseType: 'json',
+                url: apiAddress,
+                data: form
             }).then((response) => {
                 console.log(response);
                 let error = response.data[0]['error'];
-                if(error!=='no')
+                if (error !== 'no')
                     showError(error);
-                else 
-                {
+                else {
                     let success = response.data[1]['success'];
                     let message = response.data[2]['message'];
-                    if(success === 'no')
-                    {
+                    if (success === 'no') {
                         showError(message);
                     }
-                    else 
-                    {
+                    else {
                         showMessage(message);
 
                     }
