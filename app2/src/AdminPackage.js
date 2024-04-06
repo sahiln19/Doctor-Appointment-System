@@ -3,18 +3,18 @@ import Menu from "./Menu";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getBase from "./api";
-import { showError,NetworkError } from "./toast-message";
+import { showError, NetworkError } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import VerifyLogin from "./VerifyLogin";
 import { useCookies } from "react-cookie";
 export default function AdminPackage() {
-  let [cookies,setCookie,removeCookie] = useCookies('theeasylearn');
+  let [cookies, setCookie, removeCookie] = useCookies('theeasylearn');
   VerifyLogin();
   //create variable that has doctorid passed in route
   let { doctorid } = useParams();
   //create state array
   let [packages, setPackage] = useState([]);
-  let [doctorname,setDoctorName] = useState('');
+  let [doctorname, setDoctorName] = useState('');
   console.log("doctor id", doctorid);
   useEffect(() => {
     if (packages.length === 0) {
@@ -46,6 +46,13 @@ export default function AdminPackage() {
         });
     }
   })
+  let DisplayLinks = function() {
+    if(cookies['doctorid'] !== undefined)
+    return (<>
+      <Link to=''><i className="fa fa-pencil fa-2x"></i></Link>&nbsp;&nbsp;
+      <Link to=''><i className="fa fa-trash fa-2x"></i></Link>
+    </>)
+  }
   let displayPackage = function (item) {
     return (<tr>
       <td>{item.id}</td>
@@ -57,20 +64,20 @@ export default function AdminPackage() {
         </Link>
       </td>
       <td>Rs {item.charges}</td>
-      <td>{item.duration}</td>
-      
+      <td>{item.duration} <br />
+        {<DisplayLinks />}
+      </td>
+
     </tr>)
   }
-  let noPackageFound = function()
-  {
+  let noPackageFound = function () {
     return (<tr>
-        <td colSpan='6' className="text-danger fs-3 text-center">No Package Found</td>
+      <td colSpan='6' className="text-danger fs-3 text-center">No Package Found</td>
     </tr>)
   }
-  let AddPackage = function()
-  {
-      if(cookies['doctorid'] !== undefined)
-        return <Link to="" className="btn btn-success">Add Package</Link>;
+  let AddPackage = function () {
+    if (cookies['doctorid'] !== undefined)
+      return <Link to="/doctor-add-package" className="btn btn-success">Add Package</Link>;
   }
   return (<>
     <Menu />
@@ -82,7 +89,7 @@ export default function AdminPackage() {
       <div className="card shadow">
         <div className="card-header text-bg-primary d-flex justify-content-between">
           <h5>Packages of - {doctorname}</h5>
-            <AddPackage />
+          <AddPackage />
         </div>
         <div className="card-body">
           <table className="table table-stripped table-bordered">
@@ -96,7 +103,7 @@ export default function AdminPackage() {
               </tr>
             </thead>
             <tbody>
-              {(packages.length>0) ? packages.map((item) => displayPackage(item)): noPackageFound()}
+              {(packages.length > 0) ? packages.map((item) => displayPackage(item)) : noPackageFound()}
             </tbody>
           </table>
         </div>
