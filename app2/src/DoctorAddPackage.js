@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import getBase from "./api";
 import axios from "axios";
 import {ToastContainer, toast} from "react-toastify";
-import {showError, showMessages} from "./toast-messaage";
+import { showError, showMessage } from "./toast-message";
 import { useNavigate } from "react-router-dom";
 export default function DoctorAddPackage() {
     let [title, setTitle] = useState();

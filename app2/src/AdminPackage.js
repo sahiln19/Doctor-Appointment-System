@@ -3,10 +3,11 @@ import Menu from "./Menu";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getBase from "./api";
-import { showError, NetworkError } from "./toast-message";
+import { showError, NetworkError, showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import VerifyLogin from "./VerifyLogin";
 import { useCookies } from "react-cookie";
+import axios from "axios";
 export default function AdminPackage() {
   let [cookies, setCookie, removeCookie] = useCookies('theeasylearn');
   VerifyLogin();
@@ -46,12 +47,44 @@ export default function AdminPackage() {
         });
     }
   })
-  let DisplayLinks = function() {
-    if(cookies['doctorid'] !== undefined)
-    return (<>
-      <Link to=''><i className="fa fa-pencil fa-2x"></i></Link>&nbsp;&nbsp;
-      <Link to=''><i className="fa fa-trash fa-2x"></i></Link>
-    </>)
+  let deletePackage = function (packageid) {
+    // alert(packageid);
+    let apiAddress = getBase() + "delete_package.php?id=" + packageid;
+    axios({
+      method: 'get',
+      responsetype: 'json',
+      url: apiAddress
+    }).then((response) => {
+      console.log(response.data);
+      let error = response.data[0]['error'];
+      if (error !== 'no')
+        showError(error);
+      else {
+        let success = response.data[1]['success'];
+        let message = response.data[2]['message'];
+        if (success === 'yes') {
+          //findout package whose id match with packageid and delete it
+          let temp = packages.filter((item) => {
+            if (item.packageid != packageid)
+              return item;
+          });
+          setPackage(temp);
+          showMessage(message);
+        }
+        else
+          showError(message);
+      }
+    }).catch((error) => {
+      showError('could not connect to server...');
+
+    })
+  }
+  let DisplayLinks = function (props) {
+    if (cookies['doctorid'] !== undefined)
+      return (<>
+        <Link to=''><i className="fa fa-pencil fa-2x"></i></Link>&nbsp;&nbsp;
+        <Link to='' onClick={() => deletePackage(props.packageid)}><i className="fa fa-trash fa-2x"></i></Link>
+      </>)
   }
   let displayPackage = function (item) {
     return (<tr>
@@ -65,7 +98,7 @@ export default function AdminPackage() {
       </td>
       <td>Rs {item.charges}</td>
       <td>{item.duration} <br />
-        {<DisplayLinks />}
+        {<DisplayLinks packageid={item.id} />}
       </td>
 
     </tr>)
