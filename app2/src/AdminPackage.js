@@ -13,12 +13,13 @@ export default function AdminPackage() {
   VerifyLogin();
   //create variable that has doctorid passed in route
   let { doctorid } = useParams();
+  var [isDataFetched,setIsDataFetched] = useState(false); 
   //create state array
   let [packages, setPackage] = useState([]);
   let [doctorname, setDoctorName] = useState('');
   console.log("doctor id", doctorid);
   useEffect(() => {
-    if (packages.length === 0) {
+    if (isDataFetched === false) {
       let apiAddress = getBase() + "package.php?doctorid=" + doctorid;
       console.log(apiAddress);
       fetch(apiAddress)
@@ -39,6 +40,7 @@ export default function AdminPackage() {
             console.log(data);
             setPackage(data);
             setDoctorName(data[0]['name']);
+            setIsDataFetched(false);
           }
         }).catch((error) => {
           console.log("Fetch error:", error);
@@ -65,8 +67,12 @@ export default function AdminPackage() {
         if (success === 'yes') {
           //findout package whose id match with packageid and delete it
           let temp = packages.filter((item) => {
-            if (item.packageid != packageid)
-              return item;
+            if (item.id !== packageid)
+            {
+
+                console.log('item found ',item.packageid,packageid);
+                return item;
+            }
           });
           setPackage(temp);
           showMessage(message);

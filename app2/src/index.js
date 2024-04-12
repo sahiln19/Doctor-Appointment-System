@@ -1,56 +1,91 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import Menu from "./Menu";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import getBase from "./api";
+import axios from "axios";
+import { showError } from "./toast-message";
+import { ToastContainer } from "react-toastify";
 
-import AdminLogin from './AdminLogin';
-import AdminForgotPassword from './AdminForgotPassword';
-import AdminAppointment from './AdminAppointment';
-import AdminAssitant from './AdminAssitant';
-import AdminChangePassword from './AdminChangePassword';
-import AdminComposeEmail from './AdminComposeEmail';
-import AdminDoctorManagement from './AdminDoctorManagement';
-import AdminPackage from './AdminPackage';
-import DoctorForgotPassword from './DoctorForgotPassword';
-import DoctorLogin from './DoctorLogin';
-import DoctorRegister from './DoctorRegister';
-import DoctorAddAssitant from './DoctorAddAssitant';
-import DoctorAddPackage from './DoctorAddPackage';
-import DoctorEditAssitant from './DoctorEditAssitant';
-import DoctorEditPackage from './DoctorEditPackage';
-import DoctorProfile from './DoctorProfile';
-import Logout from './Logout';
-import { withCookies } from 'react-cookie';
-import NoPageFound from './NoPageFound';
+export default function DoctorEditAssistant() {
+  let { assistantid } = useParams();
 
-//creatin function which have routes.
-function MyRoutes(){
+  let [name, setName] = useState();
+  let [email, setEmail] = useState();
+  let [password, setPassword] = useState();
+  let [isFetched,setIsFetched] = useState(false);
+  useEffect(() => {
+    console.log(assistantid);
+    if (isFetched === false) {
+      let apiAddress = getBase() + "assitant.php?assistantid=" + assistantid;
+      axios({
+        method: 'get',
+        responseType: 'json',
+        url: apiAddress
+      }).then((response) => {
+        console.log(response.data);
+        let error = response.data[0]['error'];
+        if (error !== 'no')
+          showError(error);
+        else {
+          setEmail(response.data[2]['email']);
+          setPassword(response.data[2]['password']);
+          setName(response.data[2]['name']);
+          setIsFetched(true);
+        }
+      }).catch((error) => {
+        showError('please contact administrator...');
+      })
+    }
+  })
+  let updateAssistant = function (e) {
+    e.preventDefault();
+    console(email, password, name);
+  }
+  return (<>
+    <Menu />
+    <main id="main" className="main">
+      <div className="container">
+        <ToastContainer />
+        <div className="row">
+          <div className="col-12">
+            <div className="mb-3 fw-bolder">
+              <h1>Doctor management</h1>
+            </div>
+          </div>
+          <div className="col-12">
+            <div className="card">
+              <div className="card-header text-bg-primary h4 d-flex justify-content-between">Edit Assistant
+                <Link to="/admin-assitant" className="btn btn-light"><i className="fa-solid fa-angle-left" /> Back</Link>
+              </div>
+              <div className="card-body mt-2">
+                <form className="row g-3" onSubmit={updateAssistant}>
+                  <div className="col-12">
+                    <label htmlFor="name" className="form-label"><i className="fa-solid fa-pen-to-square fa-xs" /> Name</label>
+                    <input type="text" name="name" id="name" className="form-control" required value={name} onChange={(e) => setName(e.target.value)} />
+                  </div>
+                  <div className="col-12">
+                    <label htmlFor="email" className="form-label"><i className="fa-solid fa-pen-to-square fa-xs" /> Email</label>
+                    <input type="email" name="email" id="email" className="form-control" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                  </div>
+                  <div className="col-12">
+                    <label htmlFor="password" className="form-label"><i className="fa-solid fa-pen-to-square fa-xs" /> Password</label>
+                    <input type="password" name="password" id="password" className="form-control" required value={password} onChange={(e) => setPassword(e.target.value)} />
+                  </div>
+                  <div className="col-12 text-end">
+                    <div className="mt-2">
+                      <button type="submit" className="btn btn-primary me-1">Save changes</button>
+                      <button type="reset" className="btn btn-danger ">Clear</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-    return(<BrowserRouter>
-    <Routes>
-    <Route index path='/' element={<AdminLogin />} /> 
-            <Route path='/admin-forgot' element={<AdminForgotPassword />} /> 
-            <Route path='/doctor-forgot' element={<DoctorForgotPassword />} /> 
-            <Route path='/doctor-register' element={<DoctorRegister />} /> 
-            <Route path='/login' element={<DoctorLogin />} /> 
-            <Route path='/admin-appointment' element={<AdminAppointment />} /> 
-            <Route path='/admin-assitant' element={<AdminAssitant />} /> 
-            <Route path='/admin-change-password' element={<AdminChangePassword />} /> 
-            <Route path='/admin-compose-email' element={<AdminComposeEmail />} /> 
-            <Route path='/doctor-add-assitant' element={<DoctorAddAssitant />} />
-            <Route path='/doctor-edit-assitant' element={<DoctorEditAssitant />} />
-            <Route path='/doctor-add-package' element={<DoctorAddPackage />} />
-            <Route path='/doctor-edit-package' element={<DoctorEditPackage />} />
-            <Route path='/admin-doctor-management' element={<AdminDoctorManagement />} />
-            <Route path='/doctor-profile' element={<DoctorProfile />} />
-            <Route path='/admin-package' element={<AdminPackage />} />
-            <Route path='/logout' element={<Logout />} />
-            <Route path='*' element={<NoPageFound />} />
-        </Routes>
-        </BrowserRouter>);
+  </>
+  );
 }
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-var myroutesWithCookies = withCookies(MyRoutes);
-root.render(<MyRoutes/>)
-
