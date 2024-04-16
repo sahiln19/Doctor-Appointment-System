@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import getBase from "./api";
 import axios from "axios";
-import { showError } from "./toast-message";
+import { showError, showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 export default function DoctorEditAssistant() {
   let { assistantid } = useParams();
 
@@ -14,6 +15,8 @@ export default function DoctorEditAssistant() {
   let [email, setEmail] = useState();
   let [password, setPassword] = useState();
   let [isFetched,setIsFetched] = useState(false);
+  let [cookies,setCookie,removeCookie] = useCookies('theeasylearn');
+  let navigate = useNavigate();
   useEffect(() => {
     console.log(assistantid);
     if (isFetched === false) {
@@ -27,7 +30,8 @@ export default function DoctorEditAssistant() {
         let error = response.data[0]['error'];
         if (error !== 'no')
           showError(error);
-        else {
+        else 
+        {
           setEmail(response.data[2]['email']);
           setPassword(response.data[2]['password']);
           setName(response.data[2]['name']);
@@ -40,7 +44,45 @@ export default function DoctorEditAssistant() {
   })
   let updateAssistant = function (e) {
     e.preventDefault();
-    console(email, password, name);
+    console.log(email, password, name);
+    //call api 
+    let apiAddress = getBase() + "update_assistant.php";
+    let form = new FormData();
+    form.append('id',assistantid);
+    form.append('name',name);
+    form.append('password',password);
+    form.append('email',email);
+    axios({
+      method:'post',
+      responseType:'json',
+      url:apiAddress,
+      data:form
+    }).then((response)=> {
+      console.log(response.data);
+      let error = response.data[0]['error'];
+      if(error !== 'no')
+      {
+          showError(error);
+      }
+      else 
+      {
+          let success = response.data[1]['success'];
+          let message = response.data[2]['message'];
+          if(success === 'yes')
+          {
+            showMessage(message);
+            setTimeout(()=>{
+              navigate("/admin-assitant/" + cookies['doctorid']);
+            },2000);
+          }
+          else 
+          {
+            showError(message);
+          }
+      }
+    }).catch((error) => {
+        showError();
+    })
   }
   return (<>
     <Menu />

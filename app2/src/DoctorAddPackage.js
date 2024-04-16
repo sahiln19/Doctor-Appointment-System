@@ -1,12 +1,12 @@
-import Menu from "./Menu";
 import { useState } from "react";
-import { useCookies } from "react-cookie";
+import Menu from "./Menu";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import getBase from "./api";
 import axios from "axios";
-import {ToastContainer, toast} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { showError, showMessage } from "./toast-message";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 export default function DoctorAddPackage() {
     let [title, setTitle] = useState();
     let [detail, setDetail] = useState();
