@@ -35,28 +35,7 @@ export default function AdminComposeEmail() {
         externalScripts.forEach(scriptSrc => appendScript(process.env.PUBLIC_URL + scriptSrc));
 
         // Your FroalaEditor code
-        const froalaEditorCode = `
-            (function () {
-              const editorInstance = new FroalaEditor('#message', {
-                enter: FroalaEditor.ENTER_P,
-                placeholderText: null,
-                events: {
-                  initialized: function () {
-                    alert('we are here...');
-                    const editor = this;
-                    this.el.closest('form').addEventListener('submit', function (e) {
-                      console.log(editor.$oel.val());
-                      e.preventDefault();
-                    });
-                  }
-                }
-              });
-            })();
-          `;
-        const inlineScript = document.createElement('script');
-        inlineScript.type = 'text/javascript';
-        inlineScript.innerHTML = froalaEditorCode;
-        document.body.appendChild(inlineScript);
+       
 
 
     });
