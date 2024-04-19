@@ -13,7 +13,7 @@ export default function AdminAppointment() {
   VerifyLogin();
 
   let { doctorid } = useParams();
-  console.log(doctorid);
+  // console.log(doctorid);
   //create state array;
   let [appointments, setAppointment] = useState([]);
   let [cookies, setCookie, removeCookie] = useCookies('theeasylearn');
@@ -95,13 +95,12 @@ export default function AdminAppointment() {
             showError(message);
           }
           let temp = appointments.filter((item)=>{
-              if(item.id === appointmentid && mode === 'accept')
+              if(item.id === appointmentid)
               {
-                item.status = '1';
-              }
-              else 
-              {
-                item.status = '2';
+                if(mode === 'accept')
+                    item.status = 1;
+                else 
+                  item.status = 2;
               }
               return item
           });
@@ -119,8 +118,8 @@ export default function AdminAppointment() {
       return status[props.status];
     else {
       return (<>
-        <button onClick={() => updateAppointment('accept', props.appointmentid)} type='button' className="btn btn-success btn-sm">{(props.status === '1')?'Accepted':'accept'}</button>&nbsp;
-        <button onClick={() => updateAppointment('cancel', props.appointmentid)} type='button' className="btn btn-danger btn-sm">{(props.status === '2')?'Canceled':'Cancel'}</button>
+        <button disabled={props.status === 1 || props.status === 2} onClick={() => updateAppointment('accept', props.appointmentid)} type='button' className="btn btn-success btn-sm">{(props.status === 1)?'Accepted':'accept'}</button>&nbsp;
+        <button disabled={props.status === 1 || props.status === 2} onClick={() => updateAppointment('cancel', props.appointmentid)} type='button' className="btn btn-danger btn-sm">{(props.status === 2)?'Canceled':'Cancel'}</button>
       </>)
     }
 
