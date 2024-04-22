@@ -28,9 +28,7 @@ export default class Menu extends React.Component
                       </li>
                     </ul>
                   </div>
-                  <div className="button add-list-button">
-                    <a href="appointment.html" className="btn">Book Appointment</a>
-                  </div>
+                
                 </nav>
               </div>
             </div>

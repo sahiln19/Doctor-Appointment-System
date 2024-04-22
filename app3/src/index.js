@@ -1,5 +1,14 @@
 import React from 'react';
-import Page from './Page';
 import ReactDOM from 'react-dom/client';
+import Register from './Register';
+import Login from './Login';
+import ForgotPassword from './ForgotPassword';
+import ChangePassword from './ChangePassword';
+import Home from './Home';
+import Doctor from './Doctor';
+import DoctorDetail from './DoctorDetail';
+import Appointment from './Appointment';
+import MyFutureAppointments from './MyFutureAppointments';
+import MyPreviousAppointments from './MyPreviousAppointments';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Page />);
+root.render(<MyPreviousAppointments />);
