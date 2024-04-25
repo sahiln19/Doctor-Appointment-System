@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 export default class Menu extends React.Component
 {
     constructor(props)
@@ -14,7 +15,7 @@ export default class Menu extends React.Component
               <div className="nav-inner">
                 <nav className="navbar navbar-expand-lg">
                   <a className="navbar-brand" href="index.html">
-                    <img src="assets/images/logo/logo.svg" alt="Logo" />
+                    <img src="logo.png" alt="Logo"  />
                   </a>
                   <button className="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="toggler-icon" />
@@ -24,9 +25,35 @@ export default class Menu extends React.Component
                   <div className="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                     <ul id="nav" className="navbar-nav ms-auto">
                       <li className="nav-item">
-                        <a href="#" aria-label="Toggle navigation">Link</a>
+                        <Link to="/" aria-label="Toggle navigation">Home</Link>
                       </li>
+                      <li className="nav-item">
+                        <Link to="/register" aria-label="Toggle navigation">Register</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/login" aria-label="Toggle navigation">Login</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/change-password" aria-label="Toggle navigation">Change Password</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/logout" aria-label="Toggle navigation">Logout</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/doctor" aria-label="Toggle navigation">Doctor</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/doctor-detail" aria-label="Toggle navigation">Doctor Detail</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/my-future-appointment" aria-label="Toggle navigation">My Appointments</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/my-previous-appointment" aria-label="Toggle navigation">Booking History</Link>
+                      </li>
+              
                     </ul>
+
                   </div>
                 
                 </nav>
