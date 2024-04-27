@@ -1,6 +1,12 @@
 import React from "react";
 import Menu from "./Menu";
 import Footer from "./Footer";
+import axios from 'axios';
+import getBase from './api';
+import { showError, showMessage } from './toast-message'
+import { ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
+
 let Slider = (props) => {
     return (<section className="hero-area ">
         <div className="hero-slider">
@@ -49,8 +55,12 @@ let BookAppointment = (props) => {
                 <div className="row">
                     <div className="col-lg-4 col-md-6 col-12 p-0">
                         <div className="appointment-input">
-                            <label htmlFor="city"><i className="lni lni-user" /></label>
-                            <input type="text" name="city" id="city" placeholder="Your City" />
+                            <select className="form-select" required>
+                                <option value=''>Select city</option>
+                                {props.cities.map((item) => {
+                                    return <option value={item.city}>{item.city}</option>
+                                })}
+                            </select>
                         </div>
                     </div>
 
@@ -150,14 +160,47 @@ let FaceAndFigures = (props) => {
 export default class Page extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            cities : [],
+            services : []
+        }
     }
-
+    componentDidMount()
+    {
+        let apiAddress = getBase() + "city.php";
+        axios({
+            method:'get',
+            url:apiAddress,
+            responseType:'json'
+        }).then((response) =>{
+            console.log(response);
+            let error = response.data[0]['error'];
+            if (error !== 'no') {
+                showError(error);
+            }
+            else {
+                let total = response.data[1]['total'];
+                if(total === 0)
+                    showError('no city found')
+                else 
+                {
+                    response.data.splice(0,2);
+                    this.setState({
+                        cities : response.data
+                    });
+                }
+            }
+        }).catch((error) => {
+            showError('could not connect to server');
+        })
+    }
     render() {
         return (<>
             <div>
                 <Menu />
+                <ToastContainer />
                 <Slider />
-                <BookAppointment />
+                <BookAppointment cities={this.state.cities} />
                 <FaceAndFigures />
                 <Specalities />
                 <Footer />

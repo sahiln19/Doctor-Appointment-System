@@ -6,6 +6,7 @@ import getBase from './api';
 import { showError, showMessage } from './toast-message'
 import { ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
+import { withCookies } from 'react-cookie';
 
 let PageHeading = (props) => {
     return (<div className="breadcrumbs overlay">
@@ -20,12 +21,12 @@ let PageHeading = (props) => {
         </div>
     </div>)
 }
-export default class Login extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
-            password: ""
+            email: "jiya@gmail.com",
+            password: "123123"
         }
     }
     handleChange = (e) => {
@@ -35,6 +36,7 @@ export default class Login extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        const { cookies } = this.props; //this is required to use cookies.
         console.log(this.state);
         let form = new FormData();
         form.append("email", this.state.email);
@@ -58,17 +60,20 @@ export default class Login extends React.Component {
                 if (success !== 'yes')
                     showError(message);
                 else {
+                    let id = response.data[3]['id'];
+                    console.log('userid' + id);
+                    // Set the cookie with a name, value, and options
+                    cookies.set('userid',id, { path: '/' }); 
+                    cookies.set('email',this.state.email, { path: '/' }); 
+                    console.log('cookies has userid ',cookies.get('userid'))
                     showMessage(message);
                     setTimeout(() => {
-                        window.location = "/";
+                        //window.location = "/";
                     }, 3000);
                 }
             }
 
-        })
-            .catch((error) => {
-                showError('it seems you are offline or network is not available...');
-            });
+        });
     }
     render() {
         return (<>
@@ -108,3 +113,4 @@ export default class Login extends React.Component {
         </>)
     }
 }
+export default withCookies(Login);
