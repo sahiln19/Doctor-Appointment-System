@@ -61,9 +61,9 @@ class Menu extends React.Component {
                     <li className="nav-item">
                       <Link to="/doctor" aria-label="Toggle navigation">Doctor</Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                       <Link to="/doctor-detail" aria-label="Toggle navigation">Doctor Detail</Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                       <Link to="/my-future-appointment" aria-label="Toggle navigation">My Appointments</Link>
                     </li>

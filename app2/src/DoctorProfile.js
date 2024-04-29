@@ -21,11 +21,12 @@ export default function DoctorProfile() {
   {
     e.preventDefault();
     console.log(qualification,city,address,gender,dob,website,photo);
-    let apiAddress = getBase() + "update_doctor_profile.php";
+    let apiAddress = getBase() + "doctor_update_profile.php";
+    console.log(apiAddress);
     let form = new FormData();
-    form.append("doctorid",cookies['doctorid']);
-    form.append("qualification",qualification);
+    form.append("doctor_id",cookies['doctorid']);
     form.append("city",city);
+    form.append("qualification",qualification);
     form.append("address",address);
     form.append("gender",gender);
     form.append("dob",dob);
@@ -46,8 +47,8 @@ export default function DoctorProfile() {
         }
         else 
         {
-          let success = response.data[1]['success'];
-          let message = response.data[2]['message'];
+          let success = response.data[0]['success'];
+          let message = response.data[0]['message'];
           if(success === 'yes')
           {
             showMessage(message);
@@ -60,6 +61,7 @@ export default function DoctorProfile() {
         }
     }).catch((error)=>{
        showError('no such api is available....');
+       console.log(error);
     });
   }
   return (
