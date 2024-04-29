@@ -1,41 +1,28 @@
 import React from "react";
-export default class Menu extends React.Component
-{
-    constructor(props)
-    {
-        super(props)
+export default class Footer extends React.Component {
+    constructor(props) {
+        super(props);
     }
-    render ()
-    {
-        return (   <header className="header navbar-area">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-12">
-              <div className="nav-inner">
-                <nav className="navbar navbar-expand-lg">
-                  <a className="navbar-brand" href="index.html">
-                    <img src="assets/images/logo/logo.svg" alt="Logo" />
-                  </a>
-                  <button className="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="toggler-icon" />
-                    <span className="toggler-icon" />
-                    <span className="toggler-icon" />
-                  </button>
-                  <div className="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                    <ul id="nav" className="navbar-nav ms-auto">
-                      <li className="nav-item">
-                        <a href="#" aria-label="Toggle navigation">Link</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="button add-list-button">
-                    <a href="appointment.html" className="btn">Book Appointment</a>
-                  </div>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>);
+    render() {
+        return (<>
+            <footer className="footer overlay">
+                <div className="footer-bottom">
+                    <div className="container">
+                        <div className="inner">
+                            <div className="row">
+                                <div className="col-12 text-center">
+                                    <div className="content">
+                                        <p className="copyright-text">Developed by <a href="https://theeasylearnacademy.com/" rel="nofollow" target="_blank">frontend24@theeasylearnacademy</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <a href="#" className="scroll-top">
+                <i className="lni lni-chevron-up" />
+            </a></>);
     }
 }
