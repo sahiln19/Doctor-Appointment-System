@@ -68,7 +68,7 @@ class Login extends React.Component {
                     console.log('cookies has userid ',cookies.get('userid'))
                     showMessage(message);
                     setTimeout(() => {
-                        //window.location = "/";
+                        window.location = "/";
                     }, 3000);
                 }
             }

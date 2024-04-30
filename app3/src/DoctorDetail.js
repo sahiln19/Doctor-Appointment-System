@@ -66,6 +66,7 @@ class DoctorDetail extends React.Component {
         return (<>
             <div>
                 <Menu />
+                <ToastContainer />
                 <PageHeading title="Doctor Detail" />
                 <section className="doctor-details section">
                     <div className="container">

@@ -1,6 +1,7 @@
 import React from "react";
 import Menu from "./Menu";
 import Footer from "./Footer";
+import { ToastContainer } from "react-toastify";
 let PageHeading = (props) => {
     return (<div className="breadcrumbs overlay">
         <div className="container">
@@ -17,12 +18,27 @@ let PageHeading = (props) => {
 export default class ChangePassword extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {  
+            password: "",
+            Newpassword: "",
+            Confirmpassword: ""
+        }
+    }
+    handleChange = (e) => { 
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+    handleSubmit = (e) => { 
+        e.preventDefault();
+        console.log(this.state);
     }
 
     render() {
         return (<>
             <div>
                 <Menu />
+                <ToastContainer />
                 <PageHeading title="change your password" />
                 <section className="login section">
                     <div className="container">
@@ -30,16 +46,19 @@ export default class ChangePassword extends React.Component {
                             <div className="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
                                 <div className="form-head">
                                     <h4 className="title">Account Detail</h4>
-                                    <form action="#!" method="post">
+                                    <form action="#!" method="post" onSubmit={this.handleSubmit}>
                                         
                                         <div className="form-group">
-                                            <input name="password" type="password" placeholder="Current Password" />
+                                            <input name="password" type="password"  placeholder="Current Password"
+                                            onChange = {(e) => this.handleChange(e)} value={this.state.password} />
                                         </div>
                                         <div className="form-group">
-                                            <input name="password" type="password" placeholder="New Password" />
+                                            <input name="Newpassword" type="password" placeholder="New Password"
+                                            onChange = {(e) => this.handleChange(e)} value={this.state.Newpassword} />
                                         </div>
                                         <div className="form-group">
-                                            <input name="password" type="password" placeholder="Confirm new password" />
+                                            <input name="Confirmpassword" type="password" placeholder="Confirm new password" 
+                                            onChange = {(e) => this.handleChange(e)} value={this.state.Confirmpassword}/>
                                         </div>
                                         <div className="button">
                                             <button type="submit" className="btn">Let do it</button>

@@ -10,6 +10,7 @@ import DoctorDetail from './DoctorDetail';
 import Appointment from './Appointment';
 import MyFutureAppointments from './MyFutureAppointments';
 import MyPreviousAppointments from './MyPreviousAppointments';
+import Logout from './Logout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,6 +29,7 @@ function MyRoutes() //functional component
             <Route path='/appointment' element={<Appointment />} />
             <Route path='/my-future-appointment' element={<MyFutureAppointments />} />
             <Route path='/my-previous-appointment' element={<MyPreviousAppointments />} />
+            <Route path='/Logout' element={<Logout />} />
         </Routes>
     </BrowserRouter>)
 }
