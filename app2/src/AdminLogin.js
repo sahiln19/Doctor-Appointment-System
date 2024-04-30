@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import getBase from "./api";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { NetworkError, showError, showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import { useCookies } from 'react-cookie';
@@ -102,7 +103,7 @@ export default function AdminLogin() {
                       <button className="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                     <p className="text-end">
-                      <a href="admin-forgot-password.html">Forgot password</a>
+                      <Link to="admin-forgot">Forgot password</Link>
                     </p>
                   </form>
                 </div>

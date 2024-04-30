@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function AdminForgotPassword()
 {
     return (<main className="bg-warning-subtle">
@@ -31,7 +32,7 @@ export default function AdminForgotPassword()
                           <button className="btn btn-danger w-100" type="submit">Login</button>
                         </div>
                         <p className="text-end">
-                          <a href="admin-login.html">Login</a>
+                          <Link to="/">Login</Link>
                         </p>
                       </form>
                     </div>
