@@ -1,4 +1,4 @@
-export default function getbase()
+export default function getBase()
 {
-    return "http://dholerasmartcities.in/doctor/";
+    return "https://dietbvns.org/doctor/";
 }

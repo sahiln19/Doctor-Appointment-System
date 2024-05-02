@@ -21,7 +21,7 @@ export default class ChangePassword extends React.Component {
         this.state = {  
             password: "",
             Newpassword: "",
-            Confirmpassword: ""
+            Confirmnewpassword: ""
         }
     }
     handleChange = (e) => { 
@@ -32,6 +32,7 @@ export default class ChangePassword extends React.Component {
     handleSubmit = (e) => { 
         e.preventDefault();
         console.log(this.state);
+        window.location = "/Login";
     }
 
     render() {
@@ -57,8 +58,8 @@ export default class ChangePassword extends React.Component {
                                             onChange = {(e) => this.handleChange(e)} value={this.state.Newpassword} />
                                         </div>
                                         <div className="form-group">
-                                            <input name="Confirmpassword" type="password" placeholder="Confirm new password" 
-                                            onChange = {(e) => this.handleChange(e)} value={this.state.Confirmpassword}/>
+                                            <input name="ConfirmNewpassword" type="password" placeholder="Confirm new password" 
+                                            onChange = {(e) => this.handleChange(e)} value={this.state.Confirmnewpassword}/>
                                         </div>
                                         <div className="button">
                                             <button type="submit" className="btn">Let do it</button>
