@@ -1,22 +1,20 @@
- import React from 'react';
-import { withCookies } from 'react-cookie';
+import { withCookies } from "react-cookie";
+import React from 'react';
 
- class Logout extends React.Component {   
-    constructor(props) {
+class Logout extends React.Component
+{
+    constructor(props)
+    {
         super(props);
+        const { cookies } = this.props; //this is required to use cookies.
+        cookies.remove("userid");
+        cookies.remove("serviceid");
+        cookies.remove("email");
     }
-    componentDidMount() {
-        const { cookies } = this.props;
-        cookies.remove('userid', { path: '/' });
-        cookies.remove('email', { path: '/' });    
+    render()
+    {
         window.location = "/";
-    }
-    render() {
-        return (
-            <div>
-                <h1>Logging out...</h1>
-            </div>
-        )
+        return (<></>);
     }
 }
 export default withCookies(Logout);

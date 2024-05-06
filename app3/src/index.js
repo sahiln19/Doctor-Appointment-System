@@ -29,7 +29,7 @@ function MyRoutes() //functional component
             <Route path='/appointment' element={<Appointment />} />
             <Route path='/my-future-appointment' element={<MyFutureAppointments />} />
             <Route path='/my-previous-appointment' element={<MyPreviousAppointments />} />
-            <Route path='/Logout' element={<Logout />} />
+            <Route path='/logout' element={<Logout />} />
         </Routes>
     </BrowserRouter>)
 }

@@ -12,9 +12,8 @@ let SpecalitiesItem = (props) => {
     return (<div className="col-lg-4 col-md-12 col-12">
         <div className="portfolio-sidebar">
             <div className="single-widget researcher-details">
-                <h2 className="text-center text-success">Dental Care Treatment</h2>
+                <h4 className="text-center text-success">{props.title}</h4>
             </div>
-
         </div>
     </div>)
 }
@@ -25,8 +24,10 @@ class Page extends React.Component {
         this.state = {
             cities: [],
             services: [],
+            services2: [],
             selectedCity: '',
-            selectedService: ''
+            selectedService: '',
+            isDataFetched: false
         }
     }
     GetServiceByCity = (SelectedCity) => {
@@ -59,7 +60,7 @@ class Page extends React.Component {
             showError('could not connect to server');
         });
     }
-    componentDidMount() {
+    GetCity = () => {
         let apiAddress = getBase() + "city.php";
         axios({
             method: 'get',
@@ -86,6 +87,41 @@ class Page extends React.Component {
             showError('could not connect to server');
         })
     }
+    GetService = () => {
+        let apiAddress = getBase() + "get_unique_service.php";
+        axios({
+            method: 'get',
+            url: apiAddress,
+            responseType: 'json'
+        }).then((response) => {
+            console.log(response);
+            let error = response.data[0]['error'];
+            if (error !== 'no') {
+                showError(error);
+            }
+            else {
+                let total = response.data[1]['total'];
+                if (total === 0)
+                    showError('no services found')
+                else {
+                    response.data.splice(0, 2);
+                    this.setState({
+                        services2: response.data,
+                        isDataFetched: true
+                    });
+                }
+            }
+        }).catch((error) => {
+            showError('could not connect to server');
+        })
+    }
+    componentDidMount() {
+        if (this.state.isDataFetched === false) {
+            this.GetCity(); //used to get city from server 
+            this.GetService();
+            
+        }
+    }
     onchangeService = (SelectedService) => {
         this.setState({
             selectedService: SelectedService
@@ -94,12 +130,12 @@ class Page extends React.Component {
 
     submitForm = (e) => {
         e.preventDefault();
-        console.log(this.state.selectedCity,this.state.selectedService);
+        console.log(this.state.selectedCity, this.state.selectedService);
         const { cookies } = this.props; //this is required to use cookies.
-        cookies.set('city',this.state.selectedCity, { path: '/' }); 
-        cookies.set('serviceid',this.state.selectedService, { path: '/' }); 
-        console.log('cookies has city ',cookies.get('city'))
-        console.log('cookies has serviceid ',cookies.get('serviceid'))
+        cookies.set('city', this.state.selectedCity, { path: '/' });
+        cookies.set('serviceid', this.state.selectedService, { path: '/' });
+        console.log('cookies has city ', cookies.get('city'))
+        console.log('cookies has serviceid ', cookies.get('serviceid'))
         window.location = "/doctor";
     }
 
@@ -232,7 +268,9 @@ class Page extends React.Component {
                             </div>
                         </div>
                         <div className="row">
-                            <SpecalitiesItem title='Hair Growth Treatment' />
+                            {this.state.services2.map((item) => {
+                                return <SpecalitiesItem title={item.title} />
+                            })}
 
                         </div>
                     </div>

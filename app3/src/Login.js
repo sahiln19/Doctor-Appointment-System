@@ -79,7 +79,7 @@ class Login extends React.Component {
         return (<>
             <div>
                 <Menu />
-                <PageHeading   title="Sign In" />
+                <PageHeading title="Sign In" />
                 <ToastContainer />
                 <section className="login section">
                     <div className="container">
