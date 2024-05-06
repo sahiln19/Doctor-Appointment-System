@@ -38,7 +38,7 @@ function MyRoutes() {
             <Route path='/doctor-add-assistant' element={<DoctorAddAssistant />} />
             <Route path='/doctor-edit-assistant/:assistantid' element={<DoctorEditAssistant />} />
             <Route path='/doctor-add-package' element={<DoctorAddPackage />} />
-            <Route path='/doctor-edit-package' element={<DoctorEditPackage />} />
+            <Route path='doctor-add-assistant' element={<DoctorEditPackage />} />
             <Route path='/admin-doctor-management' element={<AdminDoctorManagement />} />
             <Route path='/doctor-profile' element={<DoctorProfile />} />
             <Route path='/admin-package/:doctorid' element={<AdminPackage />} />

@@ -103,7 +103,7 @@ export default function AdminLogin() {
                       <button className="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                     <p className="text-end">
-                      <Link to="admin-forgot">Forgot password</Link>
+                      <Link to="/admin-forgot">Forgot password</Link>
                     </p>
                   </form>
                 </div>
