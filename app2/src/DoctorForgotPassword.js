@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 export default function DoctorForgotPassword()
 {
     return (<main className="bg-warning-subtle">
@@ -32,7 +31,7 @@ export default function DoctorForgotPassword()
                           <button className="btn btn-danger w-100" type="submit">Login</button>
                         </div>
                         <p className="text-end">
-                          <Link to="/login">Login</Link>
+                          <a href="doctor-login.html">Login</a>
                         </p>
                       </form>
                     </div>

@@ -26,8 +26,7 @@ class MyPreviousAppointments extends React.Component {
         super(props);
         this.state = {
             appointments: [],
-            // rating:0,
-            // review:''
+            isModalOpen: false, // Add state to manage modal visibility
         }
     }
     shouldIDisplayReviewButton(item) {
@@ -127,14 +126,26 @@ class MyPreviousAppointments extends React.Component {
                 if (success === 'yes')
                 {
                     showMessage(response.data[2]['message']);
-                    this.state.map((item) => {
-                        if(item.id === cookies.get('appointmentid'))
+                    let updatedAppointment = null;
+                    let temp = this.state.appointments.filter((item) => {
+                        if(item.id != cookies.get('appointmentid'))
                         {
-                            
-
-                            
+                            return item;
+                        }
+                        else 
+                        {
+                            updatedAppointment = item;
+                            updatedAppointment.rating = this.state.rating;
+                            updatedAppointment.feedback_review = this.state.review;
                         }
                     });
+                    console.log(temp);
+                    temp = [...temp,updatedAppointment]
+                    this.setState({
+                        appointments:temp,
+                        isModalOpen: false // Set state to close modal
+                    });
+                    
                 }
                 else
                     showError(response.data[2]['message']);
@@ -177,7 +188,7 @@ class MyPreviousAppointments extends React.Component {
                         </div>
                     </div>
                     <form onSubmit={this.postRatingReview}>
-                        <div className="modal fade" id="ratingreview" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal fade" id="ratingreview" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ display: this.state.isModalOpen ? 'block' : 'none' }}>
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-header">

@@ -5,6 +5,23 @@ function showhideSidebar() {
      document.body.classList.toggle('toggle-sidebar');
 }
 function AdminMenuItems() {
+     let [cookies, setCookie, removeCookie] = useCookies('theeasylearn');
+     {/* links for admin  */ }
+     if (cookies['adminid'] !== undefined) {
+          return (
+               <>< li className="nav-item shadow-sm" >
+                    <Link className="nav-link collapsed" to="/admin-home">
+                         <i className="fa fa-home fa-2x" />
+                         <span>Home</span>
+                    </Link>
+               </li >
+                    <li className="nav-item shadow-sm">
+                         <Link className="nav-link collapsed" to="/admin-doctor-management">
+                              <i className="fa fa-home fa-2x" />
+                              <span>Doctors Management</span>
+                         </Link>
+                    </li></>);
+     }
 }
 function DoctorMenuItem() {
      let [cookies, setCookie, removeCookie] = useCookies('theeasylearn');

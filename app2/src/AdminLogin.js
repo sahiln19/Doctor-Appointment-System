@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import getBase from "./api";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { NetworkError, showError, showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import { useCookies } from 'react-cookie';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //create default function
 export default function AdminLogin() {
   //state variable
@@ -109,7 +108,7 @@ export default function AdminLogin() {
                 </div>
               </div>
             </div>
-          </div>
+          </div>  
         </div>
       </section>
     </div>

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import getBase from "./api";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { NetworkError, showError, showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import { useCookies } from 'react-cookie';
 import { useNavigate } from "react-router-dom";
-
 
 export default function DoctorLogin() {
 
@@ -157,7 +155,7 @@ export default function DoctorLogin() {
                                                 <button onClick={verifyLogin} id='assistant' className="btn btn-success w-100" type="submit">Assistant Login</button>
                                             </div>
                                             <p className="text-end">
-                                                <Link to="/doctor-forgot">Forgot password</Link>
+                                                <a href="doctor-forgot-password.html">Forgot password</a>
                                             </p>
                                         </form>
                                     </div>

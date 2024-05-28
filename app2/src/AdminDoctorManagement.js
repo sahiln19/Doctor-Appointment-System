@@ -1,63 +1,63 @@
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
 import { useEffect, useState } from "react";
-import { ToastContainer } from "react-toastify";
-import { NetworkError,showMessage } from "./toast-message";
+import { ToastContainer } from 'react-toastify'
+import { NetworkError, showMessage } from "./toast-message";
 import getBase from "./api";
 import VerifyLogin from "./VerifyLogin";
 export default function AdminDoctorManagement() {
-
+  
   VerifyLogin();
+    
   //create empty state array
-  let [doctor,setDoctor] = useState([]); 
+  let [doctor, setDoctor] = useState([]);
   //inner function 
-  let DisplayDoctor = function(item)
-  {
-      return ( <tr>
-        <td>{item.id}</td>
-        <td>{item.name}</td>
-        <td>
-          <Link to="https://picsum.photos/400" data-lightbox="image-1" data-title="My caption"> <img src="https://picsum.photos/50" className="img-fluid" />
-          </Link>
-        </td>
-        <td>{item.city}</td>
-        <td>
-          {item.regno}
-        </td>
-        <td>
-          {item.qualification}
-        </td>
-        <td>
-          <Link to="/admin-compose-email" title="Message">
-            <lord-icon
-              src="https://cdn.lordicon.com/tmqaflqo.json"
-              trigger="hover"
-              style={{ width: '40px', height: '40px' }}
-            />
-            </Link>
-          <Link to="/admin-package" title="Package">
-            <lord-icon
-              src="https://cdn.lordicon.com/jqiewnyd.json"
-              trigger="hover"
-              style={{ width: '40px', height: '40px' }}
-            />
-            </Link>
-          <Link to="/admin-assitant" title="Assitant">
-            <lord-icon
-              src="https://cdn.lordicon.com/egmlnyku.json"
-              trigger="hover"
-              style={{ width: '40px', height: '40px' }}
-            />
-            </Link>
-          <Link to="/admin-appointments" title="Appointments">
-            <lord-icon
-              src="https://cdn.lordicon.com/lzgqzxrq.json"
-              trigger="hover"
-              style={{ width: '40px', height: '40px' }}
-            />
-          </Link>
-        </td>
-      </tr>);
+  let DisplayDoctor = function (item) {
+    return (<tr>
+      <td>{item.id}</td>
+      <td>{item.name}</td>
+      <td>
+        <Link to="https://picsum.photos/400" data-lightbox="image-1" data-title="My caption"> <img src="https://picsum.photos/50" className="img-fluid" />
+        </Link>
+      </td>
+      <td>{item.city}</td>
+      <td>
+        {item.regno}
+      </td>
+      <td>
+        {item.qualification}
+      </td>
+      <td>
+        <Link to="/admin-compose-email" title="Message">
+          <lord-icon
+            src="https://cdn.lordicon.com/tmqaflqo.json"
+            trigger="hover"
+            style={{ width: '40px', height: '40px' }}
+          />
+        </Link>
+        <Link to={"/admin-package/" + item.id} title="Package">
+          <lord-icon
+            src="https://cdn.lordicon.com/jqiewnyd.json"
+            trigger="hover"
+            style={{ width: '40px', height: '40px' }}
+          />
+        </Link>
+        <Link to={"/admin-assitant/" + item.id} title="Assitant">
+          <lord-icon
+            src="https://cdn.lordicon.com/egmlnyku.json"
+            trigger="hover"
+            style={{ width: '40px', height: '40px' }}
+          />
+        </Link>
+        <Link to={"/admin-appointments/" + item['id']} title="Appointments">
+          <lord-icon
+            src="https://cdn.lordicon.com/lzgqzxrq.json"
+            trigger="hover"
+            style={{ width: '40px', height: '40px' }}
+          />
+        </Link>
+      </td>
+    </tr>);
   }
   useEffect(() => {
     if (doctor.length == 0) {
