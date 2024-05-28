@@ -38,7 +38,7 @@ class Doctor extends React.Component {
     SingleDoctor = (item) => {
         return(<div className = "col-lg-3 col-md-6 col-12" >
             {/* Start Single Doctor */ }
-            <a onClick = {()=>this.showDoctorDetail(item.id) } >
+            <Link onClick = {()=>this.showDoctorDetail(item.id) } >
 
                 <div className="single-doctor wow fadeInUp" data-wow-delay=".2s">
                     <div className="image">
@@ -50,7 +50,7 @@ class Doctor extends React.Component {
                         <h3>{item.name} </h3>
                     </div>
                 </div>
-            </a>
+            </Link>
         {/* End Single Doctor */ }
     </div>)
     }
