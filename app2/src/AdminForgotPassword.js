@@ -13,6 +13,7 @@ export default function AdminForgotPassword()
                       <span className="d-none d-lg-block h2 text-">Online Doctor Appointment</span>
                     </a>
                   </div>{/* End Logo */}
+                  {/**/}
                 </div>
                 <div className="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
                   <div className="card mb-3 ">
