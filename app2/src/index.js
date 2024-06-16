@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import AdminLogin from './AdminLogin';
+import AdminHome from './AdminHome';
 import AdminForgotPassword from './AdminForgotPassword';
 import DoctorForgotPassword from './DoctorForgotPassword';
 import DoctorRegister from './DoctorRegister';
@@ -28,6 +29,7 @@ function MyRoutes() {
         <Routes>
             <Route index path='/' element={<AdminLogin />} /> 
             <Route path='/admin-forgot' element={<AdminForgotPassword />} /> 
+            <Route path='/admin-home' element={<AdminHome/>} />
             <Route path='/doctor-forgot' element={<DoctorForgotPassword />} /> 
             <Route path='/doctor-register' element={<DoctorRegister />} /> 
             <Route path='/login' element={<DoctorLogin />} /> 
