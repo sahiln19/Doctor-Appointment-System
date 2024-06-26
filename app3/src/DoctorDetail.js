@@ -66,7 +66,6 @@ class DoctorDetail extends React.Component {
         return (<>
             <div>
                 <Menu />
-                <ToastContainer />
                 <PageHeading title="Doctor Detail" />
                 <section className="doctor-details section">
                     <div className="container">
@@ -102,13 +101,13 @@ class DoctorDetail extends React.Component {
                                                 <h3 className="name">{this.state.doctor.name}
                                                     <span>{this.state.doctor.qualification}</span>
                                                 </h3>
-<ul className="list-info">
-    <li><span>Registration No:</span> {this.state.doctor.regno}</li>
-    <li><span>Phone:</span> {this.state.doctor.contactno}</li>
-    <li><span>Website:</span> {this.state.doctor.website}</li>
-    <li><span>email:</span> {this.state.doctor.email}</li>
-    <li><span>City:</span> {this.state.doctor.city}</li>
-</ul>
+                                                <ul className="list-info">
+                                                    <li><span>Registration No:</span> {this.state.doctor.regno}</li>
+                                                    <li><span>Phone:</span> {this.state.doctor.contactno}</li>
+                                                    <li><span>Website:</span> {this.state.doctor.website}</li>
+                                                    <li><span>email:</span> {this.state.doctor.email}</li>
+                                                    <li><span>City:</span> {this.state.doctor.city}</li>
+                                                </ul>
                                                 <div className="button add-list-button">
                                                     <Link to='/appointment'
                                                     className="btn">Book Appointment</Link>

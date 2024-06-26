@@ -4,7 +4,7 @@ import axios from "axios";
 import { NetworkError, showError, showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import { useCookies } from 'react-cookie';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 //create default function
 export default function AdminLogin() {
   //state variable
@@ -102,13 +102,13 @@ export default function AdminLogin() {
                       <button className="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                     <p className="text-end">
-                      <Link to="/admin-forgot">Forgot password</Link>
+                      <a href="admin-forgot-password.html">Forgot password</a>
                     </p>
                   </form>
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
         </div>
       </section>
     </div>

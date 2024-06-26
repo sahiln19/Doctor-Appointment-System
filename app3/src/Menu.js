@@ -43,9 +43,9 @@ class Menu extends React.Component {
           <div className="col-lg-12">
             <div className="nav-inner">
               <nav className="navbar navbar-expand-lg">
-                <Link className="navbar-brand" href="index.html">
+                <a className="navbar-brand" href="index.html">
                   <img src="logo.png" alt="Logo" />
-                </Link>
+                </a>
                 <button className="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="toggler-icon" />
                   <span className="toggler-icon" />

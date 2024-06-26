@@ -90,7 +90,7 @@ export default function AdminDoctorManagement() {
 
         });
     }
-  })
+  })//
   return (<>
     <Menu />
     <main id="main" className="main">

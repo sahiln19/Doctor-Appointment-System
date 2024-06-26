@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 export default class Footer extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +12,7 @@ export default class Footer extends React.Component {
                             <div className="row">
                                 <div className="col-12 text-center">
                                     <div className="content">
-                                        <p className="copyright-text">Provide by <a href="https://theeasylearnacademy.com/" rel="nofollow" target="_blank">frontend24@theeasylearnacademy</a>
+                                        <p className="copyright-text">Developed by <a href="https://theeasylearnacademy.com/" rel="nofollow" target="_blank">frontend24@theeasylearnacademy</a>
                                         </p>
                                     </div>
                                 </div>
@@ -22,8 +21,8 @@ export default class Footer extends React.Component {
                     </div>
                 </div>
             </footer>
-            <Link href="#" className="scroll-top"> 
+            <a href="#" className="scroll-top">
                 <i className="lni lni-chevron-up" />
-            </Link></>);
+            </a></>);
     }
 }

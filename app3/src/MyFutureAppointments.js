@@ -35,8 +35,8 @@ class MyFutureAppointments extends React.Component {
         console.log(apiAddress);
         axios({
             method: 'get',
-            url: apiAddress,
-            responseType: 'json'
+            responseType: 'json',
+            url: apiAddress
         }).then((response) => {
             console.log(response.data);
             let error = response.data[0]['error'];
@@ -46,16 +46,21 @@ class MyFutureAppointments extends React.Component {
             else {
                 let total = response.data[1]['total'];
                 if (total === 0)
-                    showError('no appointment found')
+                    showError('no appointments booked so far');
                 else {
-                    response.data.splice(0, 2);
+                    // alert('hi');
+                    let temp = response.data;
+                    console.log('temp has ',temp);
+                    temp.splice(0, 2);
+                    
                     this.setState({
-                        appointments: response.data
+                        appointments: temp
                     });
+
                 }
             }
         }).catch((error) => {
-            showError('could not connect to server');
+            showError('error in connecting with server.');
         });
     }
     MyAppointments = (item) => {
@@ -67,7 +72,7 @@ class MyFutureAppointments extends React.Component {
                 <td>
                     {item.name}
                 </td>
-                <td>{item.appointmentdate}</td>
+                <td>{item.servicedate}</td>
                 <td>{item.servicetime}</td>
             </tr>
 
@@ -82,7 +87,7 @@ class MyFutureAppointments extends React.Component {
                 <div className="container mt-5">
                     <div className="row">
                         <div className="col-12 text-end mb-3">
-                            <a href="my-previous-appointment.html" className="btn btn-success">Completed Appointment</a>
+                            <Link to="/my-previous-appointment" className="btn btn-success">Completed Appointment</Link>
                         </div>
                         <div className="col-12">
                             <table className="table table-bordered table-striped">
@@ -98,7 +103,10 @@ class MyFutureAppointments extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {this.state.appointments.map((item) => this.MyAppointments(item))}
+                                    {this.state.appointments.map((item) => {
+                                        console.log('we are here ',item);
+                                        return this.MyAppointments(item)
+                                    })}
 
                                 </tbody>
                             </table>
