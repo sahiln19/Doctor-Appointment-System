@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { withCookies } from 'react-cookie';
 import AdminLogin from './AdminLogin';
 import AdminForgotPassword from './AdminForgotPassword';
 import DoctorForgotPassword from './DoctorForgotPassword';
@@ -19,7 +19,6 @@ import AdminDoctorManagement from './AdminDoctorManagement';
 import DoctorProfile from './DoctorProfile';
 import AdminPackage from './AdminPackage';
 import Logout from './Logout';
-import { withCookies } from 'react-cookie';
 import NoPageFound from './NoPageFound';
 //create function which has routes
 function MyRoutes() {

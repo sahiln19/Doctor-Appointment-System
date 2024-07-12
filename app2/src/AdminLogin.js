@@ -5,7 +5,7 @@ import { NetworkError, showError, showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
 import { useCookies } from 'react-cookie';
 import { useNavigate } from "react-router-dom";
-//create default function
+//create defaul function
 export default function AdminLogin() {
   //state variable
   let [email, setEmail] = useState();
